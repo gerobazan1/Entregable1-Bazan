@@ -3,12 +3,31 @@
     const agregarProducto = () => {
         let categoria = prompt("Ingrese la categoría del producto:");
         let nombre = prompt("Ingrese el nombre del producto:");
-        let cantidad = parseInt(prompt("Ingrese la cantidad del producto:"));
-        let precio = parseFloat(prompt("Ingrese el precio unitario del producto:"));
-
-        if (confirm(`¿Desea agregar el siguiente producto ` + nombre + `?`)) {
+        let cantidad = prompt("Ingrese la cantidad del producto:");
+        let precio = prompt("Ingrese el precio unitario del producto:");
+    
+        // Validaciones
+        if (!categoria || !nombre || !cantidad || !precio) {
+            alert("Todos los campos son obligatorios.");
+            return;
+        }
+    
+        cantidad = parseInt(cantidad);
+        precio = parseFloat(precio);
+    
+        if (isNaN(cantidad) || cantidad <= 0) {
+            alert("La cantidad debe ser un número entero positivo.");
+            return;
+        }
+    
+        if (isNaN(precio) || precio <= 0) {
+            alert("El precio debe ser un número positivo.");
+            return;
+        }
+    
+        if (confirm(`¿Desea agregar el siguiente producto ${nombre}?`)) {
             productos.push({ nombre, categoria, cantidad, precio });
-            alert(`Producto ` + nombre + ` agregado con éxito.`);
+            alert(`Producto ${nombre} agregado con éxito.`);
             mostrarInventario();
         }
     }
