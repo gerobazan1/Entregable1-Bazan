@@ -176,7 +176,7 @@ const mostrarInventario = () => {
 const iniciarSimulador = () => {
     let opcion;
     while (opcion !== "6") {
-        opcion = entradaDatos("Seleccione una opción:\n1. Agregar Producto\n2. Editar Producto\n3. Eliminar Producto\n4. Buscar Producto\n5. Mostrar Inventario\n6. Salir");
+        opcion = entradaDatos("Seleccione una opción:\n\n1. Agregar Producto 📋\n2. Editar Producto 📝\n3. Eliminar Producto 🗑️ \n4. Buscar Producto 🔍\n5. Mostrar Inventario 🖥️\n6. Salir ↩️");
 
         switch (opcion) {
             case "1":
