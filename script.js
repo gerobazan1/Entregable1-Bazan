@@ -1,7 +1,14 @@
 const productos = [];
 
 // Entrada y Salida
-const entradaDatos = (mensaje) => prompt(mensaje).trim();
+const entradaDatos = (mensaje) => {
+    const entrada = prompt(mensaje);
+    if (entrada !== null) {
+        return entrada.trim();
+    } else {
+        return "";
+    }
+}
 const consola = (mensaje) => alert(mensaje);
 
 // Validaciones
@@ -174,10 +181,9 @@ const mostrarInventario = () => {
 
 
 const iniciarSimulador = () => {
-    let opcion;
+    let opcion = "";
     while (opcion !== "6") {
         opcion = entradaDatos("Seleccione una opción:\n\n1. Agregar Producto 📋\n2. Editar Producto 📝\n3. Eliminar Producto 🗑️ \n4. Buscar Producto 🔍\n5. Mostrar Inventario 🖥️\n6. Salir ↩️");
-
         switch (opcion) {
             case "1":
                 agregarProducto();
@@ -196,12 +202,13 @@ const iniciarSimulador = () => {
                 break;
             case "6":
                 if (confirm("¿Está seguro de que desea salir del simulador?")) {
-                    mostrarMensaje("Saliendo del simulador.");
-                    return;
+                    consola("Saliendo del simulador.");
+                } else {
+                    opcion = "";
                 }
                 break;
             default:
-                mostrarMensaje("Opción inválida. Por favor, ingrese un número del 1 al 6.");
+                consola("Opción inválida. Por favor, ingrese un número del 1 al 6.");
         }
     }
 }
