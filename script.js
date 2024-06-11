@@ -179,7 +179,6 @@ const mostrarInventario = () => {
     consola(mensaje);
 };
 
-
 const iniciarSimulador = () => {
     let opcion = "";
     while (opcion !== "6") {
@@ -212,3 +211,5 @@ const iniciarSimulador = () => {
         }
     }
 }
+
+iniciarSimulador();
